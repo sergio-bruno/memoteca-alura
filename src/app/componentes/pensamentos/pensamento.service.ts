@@ -12,7 +12,7 @@ export class PensamentoService {
 
   constructor(private http: HttpClient) { }
 
-  listarPaginado(pagina: number, filtro: string): Observable<Pensamento[]> {
+  listarPaginado(pagina: number, filtro: string, favoritos: boolean): Observable<Pensamento[]> {
 
     const itensPorPagina = 6;
 
@@ -24,11 +24,14 @@ export class PensamentoService {
       params = params.set("q", filtro)
     }
 
-    // napassagem dos parametros foi omitido a variável, pois tem o mesmo nome do params
-    // passaria { params: params }
-    return this.http.get<Pensamento[]>(this.API, { params })
-  }
+    if(favoritos) {
+      params = params.set("favorito", true)
+    }
 
+    // na passagem dos parametros foi omitido a variável, pois tem o mesmo nome do params
+    // passaria { params: params }
+    return this.http.get<Pensamento[]>(this.API, { params})
+  }
 
   listar(): Observable<Pensamento[]> {
     return this.http.get<Pensamento[]>(this.API)
