@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Pensamento } from './pensamento';
 import { Observable } from 'rxjs';
 
@@ -11,6 +11,24 @@ export class PensamentoService {
   private readonly API = 'http://localhost:3000/pensamentos'
 
   constructor(private http: HttpClient) { }
+
+  listarPaginado(pagina: number, filtro: string): Observable<Pensamento[]> {
+
+    const itensPorPagina = 6;
+
+    let params = new HttpParams()
+      .set("_page", pagina)
+      .set("_limit", itensPorPagina)
+
+    if(filtro.trim().length > 2) {
+      params = params.set("q", filtro)
+    }
+
+    // napassagem dos parametros foi omitido a variável, pois tem o mesmo nome do params
+    // passaria { params: params }
+    return this.http.get<Pensamento[]>(this.API, { params })
+  }
+
 
   listar(): Observable<Pensamento[]> {
     return this.http.get<Pensamento[]>(this.API)
