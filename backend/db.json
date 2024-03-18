@@ -1,0 +1,40 @@
+{
+  "pensamentos": [
+    {
+      "id": 1,
+      "conteudo": "Que bom que vc veio",
+      "autoria": "Nay",
+      "modelo": "modelo1"
+    },
+    {
+      "id": 2,
+      "conteudo": "Estudando Angular para verificar como o texto se omporta em um card maior que a tela proposta",
+      "autoria": "Dev Alura",
+      "modelo": "modelo2"
+    },
+    {
+      "id": 3,
+      "conteudo": "Angular é o melhor'",
+      "autoria": "Dev Alura",
+      "modelo": "modelo3"
+    },
+    {
+      "id": 4,
+      "conteudo": "teste sergio",
+      "autoria": "sergio autor edição",
+      "modelo": "modelo2"
+    },
+    {
+      "id": 5,
+      "conteudo": "pensamento adriana ",
+      "autoria": "adriana autora",
+      "modelo": "modelo3"
+    },
+    {
+      "conteudo": "sergio pensamento 2",
+      "autoria": "sergio 2",
+      "modelo": "modelo1",
+      "id": 6
+    }
+  ]
+}
